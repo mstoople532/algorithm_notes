@@ -46,4 +46,25 @@
 - **Combine** - Combine the solutions to the sub-problem into the solution for the original problem.
 
 The *Merge Sort* algorithm closely follows the Divide-and-Conquer paradigm.
+- **Divide** - Divide the n-element sequence to be sorted into two subsequences of `n/2` elements each.
+- **Conquer** - Sort the two subsequences recursively using merge sort.
+- **Combine** - Merge the two sorted subsequences to produce the sorted answer. 
+
+The recursion ends when the sequence to be sorted has a length of 1, as there is no work to be done and every sequence of length one would already be in sorted order.
+
+##### Analyzing divide-and conquer algorithms
+ - **recurrence equation** - a method of describing the overall run time of an algorithm that contains a recursive call to itself, whiuch describes the overall runtime on a problem of size `n` in terms of the runtime on smaller inputs. 
  
+##### Analyzing merge sort
+To set up the recurrence for the worst case run time of a merge sort on n numbers, break down the the runtime as follows:
+
+- **Divide** - The divide step just computer the middle of the subarray, which take constant time.
+- **Conquer** - We recursively solve two subproblems, each of size `n/2`, which contributes `2T(n/2)` to the runtime.
+- **Combine** - The merge procedure on an n-element subarray takes time `O(n)`, so `C(n) = O(n)`
+
+Thus, adding `O(n)` to `2T(n/2)` will give you the worst-case runtime of the merge sort.
+
+Because `T(n) = O(n lg n)` (to be proven later), the function is logarithmic and grows more slowly than any linear function. Thus for large enough inputs merge sort outperforms insertion sort, whose worst time is `O(n^2)`
+
+ 
+
